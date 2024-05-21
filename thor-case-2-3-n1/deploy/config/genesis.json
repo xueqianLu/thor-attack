@@ -1,0 +1,102 @@
+{
+    "launchTime": 1702201933,
+    "gasLimit": 500000000,
+    "extraData": "Test Chain",
+    "accounts": [
+        {
+            "address": "0x782c4C7E8bA047edfbfA0F2815D4D035467C6aFD",
+            "balance": 25000000000000000000000000,
+            "energy": 0,
+            "code": "0x6060604052600256",
+            "storage": {
+                "0x0000000000000000000000000000000000000000000000000000000000000001": "0x0000000000000000000000000000000000000000000000000000000000000002"
+            }
+        },
+        {
+            "address": "0xb9FBF7f3D174B67EBDC65b058b28788Aa40FE404",
+            "balance": 20000000000000000000000000000,
+            "energy": 500000000000000000000000000
+        },
+        {
+            "address": "0x7E3B16732618E48D61d14E4F3F46Eb76f0aEdB1D",
+            "balance": 20000000000000000000000000000,
+            "energy": 500000000000000000000000000
+        },
+        {
+            "address": "0x5072526ab31F7e5b2045de5a8366f6d9f001e58b",
+            "balance": 20000000000000000000000000000,
+            "energy": 500000000000000000000000000
+        },
+        {
+            "address": "0xa52cA8289fDA0734610Ab5bf8489c27D60e891C0",
+            "balance": 20000000000000000000000000000,
+            "energy": 500000000000000000000000000
+        },
+        {
+            "address": "0xe2efd402A673038cB0272B62eB0b90716aEdda4b",
+            "balance": 20000000000000000000000000000,
+            "energy": 500000000000000000000000000
+        },
+        {
+            "address": "0x2e7fcA3F31435aaD8a33dA1f90B095cddD9f6e42",
+            "balance": 20000000000000000000000000000,
+            "energy": 500000000000000000000000000
+        },
+        {
+            "address": "0xEDE338918c4e54f4E6eBC775C0317Cd63D662C6d",
+            "balance": 20000000000000000000000000000,
+            "energy": 500000000000000000000000000
+        }
+    ],
+    "authority": [
+        {
+            "masterAddress": "0x65f246b9244653ba2756ccfb9cc3eab996d0a4b3",
+            "endorsorAddress": "0x782c4C7E8bA047edfbfA0F2815D4D035467C6aFD",
+            "identity": "0x000000000000000068747470733a2f2f636f6e6e65782e76656368612e696e2f"
+        },
+        {
+            "masterAddress": "0xd8d923b29c360b20ec829964df6486ad8126f9c5",
+            "endorsorAddress": "0x782c4C7E8bA047edfbfA0F2815D4D035467C6aFD",
+            "identity": "0x000000000000000068747470733a2f2f636f6e6e65782e76656368612e696e2f"
+        },
+        {
+            "masterAddress": "0xd8c165df47904495b2ad4cdf7ddf235c2118cefa",
+            "endorsorAddress": "0x782c4C7E8bA047edfbfA0F2815D4D035467C6aFD",
+            "identity": "0x000000000000000068747470733a2f2f656e762e7665636861696e2e6f72672f"
+        },
+        {
+            "masterAddress": "0x77ee04ecb8081c4023f8b950d0916374e6ba38b3",
+            "endorsorAddress": "0x782c4C7E8bA047edfbfA0F2815D4D035467C6aFD",
+            "identity": "0x0000000000000068747470733a2f2f617070732e7665636861696e2e6f72672f"
+        },
+        {
+            "masterAddress": "0x0becf133fdc47dd8bc5406bd488f7faf83766cda",
+            "endorsorAddress": "0x782c4C7E8bA047edfbfA0F2815D4D035467C6aFD",
+            "identity": "0x000000000000000068747470733a2f2f656e762e7665636861696e2e6f72672f"
+        },
+        {
+            "masterAddress": "0xf5a1c6c035948f7573bbe5a87a033b77b8c954f1",
+            "endorsorAddress": "0x782c4C7E8bA047edfbfA0F2815D4D035467C6aFD",
+            "identity": "0x000000000000000068747470733a2f2f656e762e7665636861696e2e6f72672f"
+        },
+        {
+            "masterAddress": "0xb939eeeda99ff72530e19812b5eae1fdaa775d4c",
+            "endorsorAddress": "0x782c4C7E8bA047edfbfA0F2815D4D035467C6aFD",
+            "identity": "0x000000000000000068747470733a2f2f656e762e7665636861696e2e6f72672f"
+        }
+    ],
+    "params": {
+        "rewardRatio": 300000000000000000,
+        "baseGasPrice": 100000000000000,
+        "proposerEndorsement": 25000000000000000000000000,
+        "executorAddress": "0x0000000000000000000000004578656375746f72"
+    },
+    "executor": {
+        "approvers": [
+            {
+                "address": "0xE0785611500B582cCE651c17477a408Dd0057D30",
+                "identity": "0x00000000000067656e6572616c20707572706f736520626c6f636b636861696e"
+            }
+        ]
+    }
+}

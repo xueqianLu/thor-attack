@@ -1,0 +1,226 @@
+version: "3.9"
+
+services:
+  bootnode:
+    image: thor:base
+    container_name: thor-bootnode
+    entrypoint: /usr/bin/thor --data-dir /root/node --network /root/genesis.json
+    ports:
+      - "1000:8669"
+      - "2000:11235"
+    volumes:
+      - ./config/bootnode:/root/.org.vechain.thor
+      - ./config/genesis.json:/root/genesis.json
+      - ./data/bootnode:/root/node
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 15s
+        max_attempts: 100
+        window: 120s
+    networks:
+      thor-testnet:
+        ipv4_address: 172.99.1.1
+
+  node0:
+    image: thor:base
+    container_name: thor-node-0
+    environment:
+        - BENEFICIARY=0x0000000000000000000000000000000000000010
+        - BOOTNODE=enode://bc18b2d7dd0daf50073f53f5c8e7aecb41387275efb5fd0e41ec3b87ce2804353692c38a9774777ce39ba0de61648cd7adc70d3fc29692b46c5f520f542a7824@172.99.1.1:11235
+        - ACCOUNT_IDX=0
+    #entrypoint: /usr/bin/thor --data-dir /root/node --network /root/genesis.json --beneficiary "0x0000000000000000000000000000000000000010" --api-addr "0.0.0.0:8669" --bootnode "enode://bc18b2d7dd0daf50073f53f5c8e7aecb41387275efb5fd0e41ec3b87ce2804353692c38a9774777ce39ba0de61648cd7adc70d3fc29692b46c5f520f542a7824@172.99.1.1:11235"
+    ports:
+      - "10000:8669"
+      - "20000:11235"
+    volumes:
+      - ./config/node0:/root/.org.vechain.thor
+      - ./config/genesis.json:/root/genesis.json
+      - ./config/account.json:/root/account.json
+      - ./data/node0:/root/node
+    depends_on:
+      - bootnode
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 15s
+        max_attempts: 100
+        window: 120s
+    networks:
+      thor-testnet:
+        ipv4_address: 172.99.1.2
+
+  node1:
+    image: thor:base
+    container_name: thor-node-1
+    environment:
+        - BENEFICIARY=0x0000000000000000000000000000000000000011
+        - BOOTNODE=enode://bc18b2d7dd0daf50073f53f5c8e7aecb41387275efb5fd0e41ec3b87ce2804353692c38a9774777ce39ba0de61648cd7adc70d3fc29692b46c5f520f542a7824@172.99.1.1:11235
+        - ACCOUNT_IDX=1
+    #entrypoint: /usr/bin/thor --data-dir /root/node --network /root/genesis.json --beneficiary "0x0000000000000000000000000000000000000011" --api-addr "0.0.0.0:8669" --bootnode "enode://bc18b2d7dd0daf50073f53f5c8e7aecb41387275efb5fd0e41ec3b87ce2804353692c38a9774777ce39ba0de61648cd7adc70d3fc29692b46c5f520f542a7824@172.99.1.1:11235"
+    ports:
+      - "10001:8669"
+      - "20001:11235"
+    volumes:
+      - ./config/node1:/root/.org.vechain.thor
+      - ./config/genesis.json:/root/genesis.json
+      - ./config/account.json:/root/account.json
+      - ./data/node1:/root/node
+    depends_on:
+      - bootnode
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 15s
+        max_attempts: 100
+        window: 120s
+    networks:
+      thor-testnet:
+        ipv4_address: 172.99.1.3
+
+  node2:
+    image: thor:base
+    container_name: thor-node-2
+    environment:
+        - BENEFICIARY=0x0000000000000000000000000000000000000012
+        - BOOTNODE=enode://bc18b2d7dd0daf50073f53f5c8e7aecb41387275efb5fd0e41ec3b87ce2804353692c38a9774777ce39ba0de61648cd7adc70d3fc29692b46c5f520f542a7824@172.99.1.1:11235
+        - ACCOUNT_IDX=2
+    #entrypoint: /usr/bin/thor --data-dir /root/node --network /root/genesis.json --beneficiary "0x0000000000000000000000000000000000000012" --api-addr "0.0.0.0:8669" --bootnode "enode://bc18b2d7dd0daf50073f53f5c8e7aecb41387275efb5fd0e41ec3b87ce2804353692c38a9774777ce39ba0de61648cd7adc70d3fc29692b46c5f520f542a7824@172.99.1.1:11235"
+    ports:
+      - "10002:8669"
+      - "20002:11235"
+    volumes:
+      - ./config/node2:/root/.org.vechain.thor
+      - ./config/genesis.json:/root/genesis.json
+      - ./config/account.json:/root/account.json
+      - ./data/node2:/root/node
+    depends_on:
+      - bootnode
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 15s
+        max_attempts: 100
+        window: 120s
+    networks:
+      thor-testnet:
+        ipv4_address: 172.99.1.4
+
+  node3:
+    image: thor:base
+    container_name: thor-node-3
+    environment:
+        - BENEFICIARY=0x0000000000000000000000000000000000000013
+        - BOOTNODE=enode://bc18b2d7dd0daf50073f53f5c8e7aecb41387275efb5fd0e41ec3b87ce2804353692c38a9774777ce39ba0de61648cd7adc70d3fc29692b46c5f520f542a7824@172.99.1.1:11235
+        - ACCOUNT_IDX=3
+    #entrypoint: /usr/bin/thor --data-dir /root/node --network /root/genesis.json --beneficiary "0x0000000000000000000000000000000000000013" --api-addr "0.0.0.0:8669" --bootnode "enode://bc18b2d7dd0daf50073f53f5c8e7aecb41387275efb5fd0e41ec3b87ce2804353692c38a9774777ce39ba0de61648cd7adc70d3fc29692b46c5f520f542a7824@172.99.1.1:11235"
+    ports:
+      - "10003:8669"
+      - "20003:11235"
+    volumes:
+      - ./config/node3:/root/.org.vechain.thor
+      - ./config/genesis.json:/root/genesis.json
+      - ./config/account.json:/root/account.json
+      - ./data/node3:/root/node
+    depends_on:
+      - bootnode
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 15s
+        max_attempts: 100
+        window: 120s
+    networks:
+      thor-testnet:
+        ipv4_address: 172.99.1.5
+
+  node4:
+    image: thor:base
+    container_name: thor-node-4
+    environment:
+        - BENEFICIARY=0x0000000000000000000000000000000000000014
+        - BOOTNODE=enode://bc18b2d7dd0daf50073f53f5c8e7aecb41387275efb5fd0e41ec3b87ce2804353692c38a9774777ce39ba0de61648cd7adc70d3fc29692b46c5f520f542a7824@172.99.1.1:11235
+        - ACCOUNT_IDX=4
+    #entrypoint: /usr/bin/thor --data-dir /root/node --network /root/genesis.json --beneficiary "0x0000000000000000000000000000000000000014" --api-addr "0.0.0.0:8669" --bootnode "enode://bc18b2d7dd0daf50073f53f5c8e7aecb41387275efb5fd0e41ec3b87ce2804353692c38a9774777ce39ba0de61648cd7adc70d3fc29692b46c5f520f542a7824@172.99.1.1:11235"
+    ports:
+      - "10004:8669"
+      - "20004:11235"
+    volumes:
+      - ./config/node4:/root/.org.vechain.thor
+      - ./config/genesis.json:/root/genesis.json
+      - ./config/account.json:/root/account.json
+      - ./data/node4:/root/node
+    depends_on:
+      - bootnode
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 15s
+        max_attempts: 100
+        window: 120s
+    networks:
+      thor-testnet:
+        ipv4_address: 172.99.1.6
+
+  node5:
+    image: thor:base
+    container_name: thor-node-5
+    environment:
+        - BENEFICIARY=0x0000000000000000000000000000000000000015
+        - BOOTNODE=enode://bc18b2d7dd0daf50073f53f5c8e7aecb41387275efb5fd0e41ec3b87ce2804353692c38a9774777ce39ba0de61648cd7adc70d3fc29692b46c5f520f542a7824@172.99.1.1:11235
+        - ACCOUNT_IDX=5
+    #entrypoint: /usr/bin/thor --data-dir /root/node --network /root/genesis.json --beneficiary "0x0000000000000000000000000000000000000015" --api-addr "0.0.0.0:8669" --bootnode "enode://bc18b2d7dd0daf50073f53f5c8e7aecb41387275efb5fd0e41ec3b87ce2804353692c38a9774777ce39ba0de61648cd7adc70d3fc29692b46c5f520f542a7824@172.99.1.1:11235"
+    ports:
+      - "10005:8669"
+      - "20005:11235"
+    volumes:
+      - ./config/node5:/root/.org.vechain.thor
+      - ./config/genesis.json:/root/genesis.json
+      - ./config/account.json:/root/account.json
+      - ./data/node5:/root/node
+    depends_on:
+      - bootnode
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 15s
+        max_attempts: 100
+        window: 120s
+    networks:
+      thor-testnet:
+        ipv4_address: 172.99.1.7
+
+  node6:
+    image: thor:base
+    container_name: thor-node-6
+    environment:
+        - BENEFICIARY=0x0000000000000000000000000000000000000016
+        - BOOTNODE=enode://bc18b2d7dd0daf50073f53f5c8e7aecb41387275efb5fd0e41ec3b87ce2804353692c38a9774777ce39ba0de61648cd7adc70d3fc29692b46c5f520f542a7824@172.99.1.1:11235
+        - ACCOUNT_IDX=6
+    #entrypoint: /usr/bin/thor --data-dir /root/node --network /root/genesis.json --beneficiary "0x0000000000000000000000000000000000000016" --api-addr "0.0.0.0:8669" --bootnode "enode://bc18b2d7dd0daf50073f53f5c8e7aecb41387275efb5fd0e41ec3b87ce2804353692c38a9774777ce39ba0de61648cd7adc70d3fc29692b46c5f520f542a7824@172.99.1.1:11235"
+    ports:
+      - "10006:8669"
+      - "20006:11235"
+    volumes:
+      - ./config/node6:/root/.org.vechain.thor
+      - ./config/genesis.json:/root/genesis.json
+      - ./config/account.json:/root/account.json
+      - ./data/node6:/root/node
+    depends_on:
+      - bootnode
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 15s
+        max_attempts: 100
+        window: 120s
+    networks:
+      thor-testnet:
+        ipv4_address: 172.99.1.8
+
+networks:
+  thor-testnet:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.99.0.0/16
